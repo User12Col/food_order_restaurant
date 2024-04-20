@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/routes/navigator_names.dart';
 import 'package:restaurant/theme/color.dart';
+import 'package:restaurant/models/table.dart' as model;
 
 class TableWidget extends StatelessWidget {
-  final String title;
-  final String status;
-  const TableWidget({Key? key, required this.title, required this.status})
+  final model.Table table;
+  const TableWidget({Key? key, required this.table})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final tableWidth = MediaQuery.of(context).size.width / 3.5;
     final tableHeight = MediaQuery.of(context).size.height / 9;
+
+    String convert(int status){
+      return status == 0 ? 'Empty' : 'Full';
+    }
     return GestureDetector(
       onTap: () {
-        status == 'Empty'
+        table.status == 0
             ? Navigator.of(context).pushNamed(
                 NavigatorNames.ORDER_PAGE,
                 arguments: {
-                  'title': {'title': title}
+                  'table': table.toMap()
                 },
               )
             : Navigator.of(context).pushNamed(NavigatorNames.FULL_ORDER_PAGE);
@@ -37,12 +41,12 @@ class TableWidget extends StatelessWidget {
             ),
           ],
           borderRadius: BorderRadius.circular(20.0),
-          color: status == 'Full' ? AppColors.foodColor : Colors.white,
+          color: table.status == 1 ? AppColors.tableFullColor : Colors.white,
         ),
         child: Center(
           child: Text(
-            '$title - $status',
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            '${table.location} - ${convert(table.status!)}',
+            style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold, color: table.status == 1 ? Colors.grey : AppColors.primaryColor,),
           ),
         ),
       ),

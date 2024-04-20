@@ -18,7 +18,7 @@ class _FullOrderPageState extends State<FullOrderPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.appBarColor,
-        title: const Text('Bàn 1'),
+        title: const Text('Bàn 1', style: TextStyle(color: Colors.white),),
         centerTitle: true,
       ),
       body: SafeArea(

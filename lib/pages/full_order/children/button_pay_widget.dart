@@ -18,6 +18,7 @@ class ButtonPayWidget extends StatelessWidget {
           child: Text(
             'Thanh Toán',
             style: TextStyle(
+              color: AppColors.textColor,
               fontWeight: FontWeight.bold,
             ),
           ),

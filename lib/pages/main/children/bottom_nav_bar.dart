@@ -27,11 +27,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                activeIcon: Icon(Icons.home, color: AppColors.tableColor,),
+                activeIcon: Icon(Icons.home, color: AppColors.primaryColor,),
                 label: 'Trang chủ'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
-                activeIcon: Icon(Icons.settings, color: AppColors.tableColor,),
+                activeIcon: Icon(Icons.settings, color: AppColors.primaryColor,),
                 label: 'Thiết lập'),
           ],
           onTap: (int index) async {

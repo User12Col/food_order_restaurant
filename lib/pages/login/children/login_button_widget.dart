@@ -21,6 +21,7 @@ class LoginButtonWidget extends StatelessWidget {
           child: Text(
             'Đăng Nhập',
             style: TextStyle(
+              color: AppColors.textColor,
               fontWeight: FontWeight.bold,
             ),
           ),

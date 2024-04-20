@@ -1,11 +1,12 @@
 import 'dart:ui';
 
 class AppColors{
-  static const primaryColor =Color.fromARGB(255, 42, 142, 224);
-  static const textColor = Color(0xff1F2024);
-  static const appBarColor = Color(0xffb7c4f5);
+  static const primaryColor =Color.fromARGB(255, 0, 0, 0);
+  static const textColor = Color(0xffffffff);
+  static const appBarColor = Color(0xffec666d);
   static const tableColor =Color.fromARGB(255, 42, 142, 224);
-  static const tableFullColor =Color.fromARGB(255, 60, 224, 42);
-  static const backgroundColor =Color.fromARGB(255, 197, 207, 241);
+  static const tableFullColor =Color.fromARGB(255, 254, 234, 227);
+  static const backgroundColor =Color(0xfff8f8f8);
   static const foodColor = Color.fromARGB(255, 229, 230, 243);
+
 }

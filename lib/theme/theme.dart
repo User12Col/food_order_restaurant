@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/theme/color.dart';
 
-ThemeData themeData = ThemeData(
-  primaryColor: AppColors.primaryColor,
-  indicatorColor: AppColors.primaryColor,
-  appBarTheme: const AppBarTheme(
+ThemeData themeData = ThemeData.light().copyWith(
+  scaffoldBackgroundColor: AppColors.backgroundColor,
+  appBarTheme: AppBarTheme(
     backgroundColor: AppColors.appBarColor,
-    titleTextStyle: TextStyle(
-      color: AppColors.textColor,
-      fontWeight: FontWeight.bold,
-    )
-  )
+  ),
 );
