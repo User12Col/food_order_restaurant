@@ -4,4 +4,5 @@ class NavigatorNames{
   static const String FULL_ORDER_PAGE='/fullOrderPage';
   static const String LOGIN_PAGE = '/login';
   static const String REQUEST_ORDER_PAGE = '/requestOrderPage';
+  static const String REQUET_ORDER_SUCCESS = '/requestOrderSuccess';
 }

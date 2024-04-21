@@ -5,27 +5,23 @@ import 'package:restaurant/models/table.dart' as model;
 
 class TableWidget extends StatelessWidget {
   final model.Table table;
-  const TableWidget({Key? key, required this.table})
-      : super(key: key);
+  const TableWidget({Key? key, required this.table}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final tableWidth = MediaQuery.of(context).size.width / 3.5;
     final tableHeight = MediaQuery.of(context).size.height / 9;
 
-    String convert(int status){
+    String convert(int status) {
       return status == 0 ? 'Empty' : 'Full';
     }
+
     return GestureDetector(
       onTap: () {
-        table.status == 0
-            ? Navigator.of(context).pushNamed(
-                NavigatorNames.ORDER_PAGE,
-                arguments: {
-                  'table': table.toMap()
-                },
-              )
-            : Navigator.of(context).pushNamed(NavigatorNames.FULL_ORDER_PAGE);
+        Navigator.of(context).pushNamed(
+          NavigatorNames.ORDER_PAGE,
+          arguments: {'table': table.toMap()},
+        );
       },
       child: Container(
         margin: const EdgeInsets.all(8.0),
@@ -46,7 +42,11 @@ class TableWidget extends StatelessWidget {
         child: Center(
           child: Text(
             '${table.location} - ${convert(table.status!)}',
-            style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold, color: table.status == 1 ? Colors.grey : AppColors.primaryColor,),
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+              color: table.status == 1 ? Colors.grey : AppColors.primaryColor,
+            ),
           ),
         ),
       ),

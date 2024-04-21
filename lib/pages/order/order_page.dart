@@ -40,6 +40,7 @@ class _OrderPageState extends State<OrderPage> {
     super.initState();
     _orderBloc = BlocProvider.of<OrderBloc>(context);
     _orderBloc.add(EventLoadingMenu());
+
   }
 
   @override

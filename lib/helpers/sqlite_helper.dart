@@ -75,7 +75,7 @@ class SqliteHelper {
     await db.update('menuItem', menuItem.toMap(), where: 'id=?', whereArgs: [menuItem.id]);
   }
 
-  Future<void> deleteNote(int id) async{
+  Future<void> deleteMenuItem(int id) async{
     final db = await openData();
     await db.delete(
         'menuItem',

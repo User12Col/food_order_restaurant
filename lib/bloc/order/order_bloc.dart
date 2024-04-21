@@ -16,6 +16,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     on<EventLoadingMenu>(_loadingMenu);
     on<EventAddToCart>(_addToCart);
     on<EventCancel>(_cancel);
+    on<EventNavigate>(_navigate);
   }
 
   Future<void> _loadingMenu(
@@ -27,7 +28,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     } catch (e) {
       emit(state.copyWith(isSuccess: false));
     }
-    emit(state.copyWith(isLoadingFood: false));
   }
 
   Future<void> _addToCart(
@@ -60,5 +60,9 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   Future<void> _cancel(EventCancel event, Emitter<OrderState> emit) async{
     await SqliteHelper().deleteAllMenuItems();
     emit(state.copyWith(isAddSuccess: false, totalPrice: 0));
+  }
+
+  Future<void> _navigate(EventNavigate event, Emitter<OrderState> emit) async{
+    emit(state.copyWith(isLoadingFood: true, isSuccess: false, isAddSuccess: false, totalPrice: 0, menus: []));
   }
 }

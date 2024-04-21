@@ -1,8 +1,10 @@
 import 'package:restaurant/models/menu.dart';
+import 'package:restaurant/models/menu_item.dart';
 import 'package:restaurant/models/table.dart';
 import 'package:restaurant/models/user.dart';
 import 'package:restaurant/services/login_service.dart';
 import 'package:restaurant/services/menu_service.dart';
+import 'package:restaurant/services/order_service.dart';
 import 'package:restaurant/services/table_service.dart';
 import 'package:restaurant/services/user_service.dart';
 
@@ -14,6 +16,9 @@ void main() async{
   // List<Table> tables = await TableService().getAllTable(token);
   // print(tables[0].location);
 
-  List<Menu> menus = await MenuService().getAllMenu(token);
-  print(menus[0].menu_items![0].name);
+  // List<Menu> menus = await MenuService().getAllMenu(token);
+  // print(menus[0].menu_items![0].name);
+
+  String rs = await OrderService().orderMenuItem(token, 1, [MenuItem(id: 1, quantity: 1)]);
+  print(rs);
 }
